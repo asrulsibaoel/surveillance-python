@@ -24,7 +24,7 @@ run-server:
 	flask run --host=${SERVER_IP}
 
 run-client:
-	python client.py
+	python3 client.py
 
 run-all: run-server run-client
 
