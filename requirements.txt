@@ -10,7 +10,7 @@ swagger-ui-bundle==0.0.6
 pytest==4.0.2
 pymysql==0.9.3
 python-dotenv==0.10.3
-tensorflow==1.15
+# tensorflow==1.15
 opencv-python==3.4.3.18
 opencv-contrib-python==4.1.2.30
 numpy==1.17.4
