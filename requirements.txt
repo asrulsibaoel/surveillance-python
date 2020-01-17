@@ -273,9 +273,9 @@ swagger-ui-bundle==0.0.6
 sympy==1.3
 # tables==3.4.4
 # tblib==1.3.2
-tensorboard==1.15.0
-tensorflow==1.15.0
-tensorflow-estimator==1.15.1
+# tensorboard==1.15.0
+# tensorflow==1.15.0
+# tensorflow-estimator==1.15.1
 termcolor==1.1.0
 terminado==0.8.1
 testpath==0.4.2
