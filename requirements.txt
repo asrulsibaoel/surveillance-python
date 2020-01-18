@@ -171,7 +171,7 @@ opencv-contrib-python==4.1.2.30
 opencv-python==3.4.3.18
 openpyxl==2.5.12
 opt-einsum==3.1.0
-Orange3==3.19.0
+# Orange3==3.19.0
 oyaml==0.9
 packaging==18.0
 pandas==0.23.4
