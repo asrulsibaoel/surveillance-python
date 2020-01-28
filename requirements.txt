@@ -213,7 +213,7 @@ pylint-flask==0.6
 pylint-plugin-utils==0.6
 pymongo==3.4.0
 PyMySQL==0.9.3
-pyodbc==4.0.25
+# pyodbc==4.0.25
 PyOpenGL==3.1.1a1
 pyOpenSSL==18.0.0
 pyparsing==2.3.0
