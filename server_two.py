@@ -13,12 +13,13 @@ import time
 # import imutils
 import cv2
 from flask import Flask, render_template, Response
-
+import os
 app = Flask(__name__)
 sub = cv2.createBackgroundSubtractorMOG2()  # create background subtractor
 
 
-imageHub = imagezmq.ImageHub()
+APP_PORT = os.getenv('PORT', 5555)
+imageHub = imagezmq.ImageHub(open_port=APP_PORT)
 
 
 @app.route('/')
