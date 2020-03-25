@@ -11,4 +11,3 @@ opencv-contrib-python==4.1.2.30
 opencv-python==4.1.2.30
 pyzmq==19.0.0
 Werkzeug==1.0.0
-zmq==0.0.0

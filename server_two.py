@@ -18,8 +18,10 @@ app = Flask(__name__)
 sub = cv2.createBackgroundSubtractorMOG2()  # create background subtractor
 
 
-APP_PORT = os.getenv('PORT', 5555)
-imageHub = imagezmq.ImageHub(open_port=APP_PORT)
+APP_PORT = os.getenv('PORT', "5555")
+APP_URI = "tcp://*:{}".format(APP_PORT)
+print("-=[Image Receiver Running on port: {}]=-".format(APP_PORT))
+imageHub = imagezmq.ImageHub(open_port=APP_URI)
 
 
 @app.route('/')
