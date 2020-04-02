@@ -9,7 +9,10 @@ import socket
 import time
 import os
 
-server_ip = os.getenv("SERVER_IP")
+from dotenv import load_dotenv
+load_dotenv()
+
+server_ip = os.getenv("SERVER_IP", "127.0.0.1")
 
 # initialize the ImageSender object with the socket address of the
 # server
@@ -26,4 +29,4 @@ time.sleep(2.0)
 while True:
 	# read the frame from the camera and send it to the server
 	frame = vs.read()
-	sender.send_image(rpiName, frame)
+	sender.send_image("camera~{}".format(rpiName), frame)
