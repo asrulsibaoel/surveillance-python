@@ -19,6 +19,10 @@ class ImageProcessor(object):
         self.image_hub = ImageHub(zmq_res_address, False)
         self.image_sender = ImageSender(zmq_sub_address)
 
+    def detect_faces(self, frame):
+        
+        return frame
+
     def get_image_stream(self):
         yield self.image_hub.recv_image()
         # [key, img] = self.image_hub.recv_image()
@@ -34,12 +38,12 @@ class ImageProcessor(object):
         while True:
             (key, img) = self.image_hub.recv_image()
             # self.image_hub.send_reply()
-            print(key, ": ", img)
+            # print(key, ": ", img)
             [key_type, rpi_name] = key.split("~")
 
             self.image_sender.send_image("detected~{}".format(rpi_name), img)
 
-            time.sleep(0.1)
+            time.sleep(0.01)
 
 
 

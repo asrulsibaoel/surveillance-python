@@ -12,7 +12,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-server_ip = os.getenv("SERVER_IP", "127.0.0.1")
+server_ip = os.getenv("SERVER_IP", "35.236.137.50")
 
 # initialize the ImageSender object with the socket address of the
 # server
