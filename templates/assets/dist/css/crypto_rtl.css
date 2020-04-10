@@ -1,0 +1,24 @@
+.crypto_statbox .stat_title .stat_right {
+    text-align: left;
+}
+.crypto_statbox .stat_title .stat_left i {
+    margin-right: auto;
+    margin-left: 5px;
+}
+.wallet_box .box_line .w_value, .wallet_box .box_line .w_copy{
+    text-align: left;
+}
+.imagine-card-logo{
+    margin-right: 0;
+    margin-left: 16px;
+}
+.trading_change {
+    text-align: left;
+}
+.trading_title i {
+    margin-right: 0;
+    margin-left: 8px;
+}
+.exchange_icon i{
+    transform: rotateY(180deg);
+}
