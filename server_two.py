@@ -35,7 +35,7 @@ zmq_server.run_server()
 @app.route('/')
 def index():
     """Video streaming home page."""
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 def gen():
@@ -54,8 +54,10 @@ def gen():
 @app.route('/video_feed')
 def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
+    # return Response('kodok.png',
+    #                 mimetype='multipart/x-mixed-replace; boundary=frame')
     return Response(gen(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == "__main__":
-    app.run(port=int(config.WEB_PORT))
+    app.run(port=int(config.WEB_PORT), use_reloader=False, debug=True)

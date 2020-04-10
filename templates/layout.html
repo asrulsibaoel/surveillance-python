@@ -8,8 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Adminpix</title>
-        <link rel="shortcut icon" href="assets/dist/img/favicon.png" type="image/x-icon">
-        <script src="../../../../../ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='assets/dist/img/favicon.png') }}" type="image/x-icon">
+        <script src="{{ url_for('static', filename='assets/googleapis/webfont.js') }}"></script>
         <script>
             WebFont.load({
                 google: {families: ['Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i']},
@@ -19,17 +19,18 @@
             });
         </script>
         <!-- START GLOBAL MANDATORY STYLE -->
-        <link href="assets/dist/css/base.css" rel="stylesheet" type="text/css">
+        <link href="{{ url_for('static', filename='assets/dist/css/base.css') }}" rel="stylesheet" type="text/css">
         <!-- START PAGE LABEL PLUGINS --> 
 
         <!-- START THEME LAYOUT STYLE -->
-        <link href="assets/dist/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="{{ url_for('static', filename='assets/dist/css/style.css') }}" rel="stylesheet" type="text/css"/>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        {% block css %}{% endblock %}
     </head>
     <body class="hold-transition fixed sidebar-mini dark">
         
@@ -42,11 +43,11 @@
                 <a href="index-2.html" class="logo"> <!-- Logo -->
                     <span class="logo-mini">
                         <!--<b>A</b>H-admin-->
-                        <img src="assets/dist/img/logo-mini.png" alt="img">
+                        <img src="{{ url_for('static', filename='assets/dist/img/logo-mini.png') }}" alt="img">
                     </span>
                     <span class="logo-lg">
                         <!--<b>Admin</b>H-admin-->
-                        <img src="assets/dist/img/logo.png" alt="img">
+                        <img src="{{ url_for('static', filename='assets/dist/img/logo.png') }}" alt="img">
                     </span>
                 </a>
                 <!-- Header Navbar -->
@@ -160,7 +161,7 @@
                                             <div class=message_widgets>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Farzana Yasmin</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -169,7 +170,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar2.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar2.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Mubin Khan</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -178,7 +179,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar3.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar3.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Mozammel Hoque</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -187,7 +188,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar4.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar4.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Tanzil Ahmed</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm  available...</p>
@@ -196,7 +197,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar5.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar5.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Amir Khan</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -205,7 +206,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Salman Khan</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -214,7 +215,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Farzana Yasmin</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -223,7 +224,7 @@
                                                 </a>
                                                 <a href="#">
                                                     <div class=inbox-item>
-                                                        <div class=inbox-item-img><img src="assets/dist/img/avatar4.png" class=img-circle alt=""></div>
+                                                        <div class=inbox-item-img><img src="{{ url_for('static', filename='assets/dist/img/avatar4.png') }}" class=img-circle alt=""></div>
                                                         <strong class=inbox-item-author>Tanzil Ahmed</strong>
                                                         <span class=inbox-item-date>-13:40 PM</span>
                                                         <p class=inbox-item-text>Hey! there I'm available...</p>
@@ -480,7 +481,7 @@
             <div class="content-wrapper">
                 <!-- Main content -->
                 <div class="content">
-                    
+                    {% block content %}{% endblock %}
                 </div>
             </div>
             <footer class="main-footer">
@@ -489,15 +490,18 @@
             </footer>
         </div> <!-- ./wrapper -->
         <!-- START CORE PLUGINS -->
-        <script src="assets/plugins/jQuery/jquery-1.12.4.min.js"></script>
-        <script src="assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-        <script src="assets/plugins/fastclick/fastclick.min.js"></script>
-        <script src="assets/plugins/metisMenu/metisMenu.min.js"></script>
-        <script src="assets/plugins/lobipanel/lobipanel.min.js"></script>
+        
+        <script src="{{ url_for('static', filename='assets/plugins/jQuery/jquery-1.12.4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/plugins/fastclick/fastclick.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/plugins/metisMenu/metisMenu.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='assets/plugins/lobipanel/lobipanel.min.js') }}"></script>
         <!-- START THEME LABEL SCRIPT -->
-        <script src="assets/dist/js/theme.js"></script>
+        <script src="{{ url_for('static', filename='assets/dist/js/theme.js') }}"></script>
+
+        {% block js %}{% endblock %}
     </body>
 
 <!-- Mirrored from thememinister.com/adminpix/adminpix-v-2.1/theme/adminpix_dark/blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Apr 2020 03:11:13 GMT -->

@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 server_ip = os.getenv("SERVER_IP", "35.236.137.50")
+print("-=[Sending frame data to {}]=-".format(server_ip))
 
 # initialize the ImageSender object with the socket address of the
 # server
