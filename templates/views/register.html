@@ -1,0 +1,66 @@
+{% extends 'layout_blank.html' %}
+
+{% block content %}
+<!-- Content Wrapper -->
+<div class="register-wrapper">
+    <div class="container-center lg">
+        <div class="panel panel-bd">
+            <div class="panel-heading">
+                <div class="view-header">
+                    <div class="header-icon">
+                        <i class="pe-7s-pen"></i>
+                    </div>
+                    <div class="header-title"> 
+                        <h3>Register</h3> 
+                        <p><strong>Please enter your data to register.</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form action="http://thememinister.com/adminpix/adminpix-v-2.1/theme/adminpix_dark/index.html" id="loginForm" novalidate>
+                    <!--Social Buttons--> 
+                    <div class="social">
+                        <strong>Register in using social network:</strong><br>
+                        <div class="twitter_bg"><i class="fa fa-twitter"></i><a href="#" class="btn_1">Login Twitter</a></div>
+                        <div class="fb_bg"><i class="fa fa-facebook"></i><a href="#" class="btn_2">Login Facebook</a></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="username" type="text" class="form-control" name="email" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            <input id="pass" type="password" class="form-control" name="password" placeholder="******">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Repeat Password</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            <input id="rpass" type="password" class="form-control" name="rpass" placeholder="******">  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                            <input id="email" type="password" class="form-control" name="email" placeholder="Please enter you email adress">
+                        </div>
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-base pull-right">Register</a>
+                        <a href="login.html" class="btn btn-base pull-right m-r-5">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content-wrapper -->
+{% endblock %}
+        

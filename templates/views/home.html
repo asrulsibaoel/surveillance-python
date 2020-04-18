@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 lobipanel-parent-sortable" >
+            <div class="panel panel-bd lobidrag lobipanel lobipanel-sortable" data-index="0">
+                <div class="panel-heading">
+                    <div class="panel-title" style="max-width: calc(100% - 180px);">
+                        <h4>Streaming from: Room One</h4>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <img style="max-height: 300px" src="{{ url_for('video_feed') }}">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 lobipanel-parent-sortable" >
+            <div class="panel panel-bd lobidrag lobipanel lobipanel-sortable" data-index="0">
+                <div class="panel-heading">
+                    <div class="panel-title" style="max-width: calc(100% - 180px);">
+                        <h4>Streaming from: Room One</h4>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <img style="max-height: 300px" src="{{ url_for('video_feed') }}">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+{% endblock %}

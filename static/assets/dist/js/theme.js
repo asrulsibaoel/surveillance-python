@@ -1,46 +1,49 @@
 $(document).ready(function () {
     "use strict"; // Start of use strict
+    if ($(".ui-sortable")) {
+        $(".lobidrag").lobiPanel({
+            sortable: !0,
+            editTitle: {
+                icon: "ti-pencil"
+            },
+            unpin: {
+                icon: "ti-move"
+            },
+            reload: {
+                icon: "ti-reload"
+            },
+            minimize: {
+                icon: "ti-minus",
+                icon2: "ti-plus"
+            },
+            close: {
+                icon: "ti-close"
+            },
+            expand: {
+                icon: "ti-fullscreen",
+                icon2: "ti-fullscreen"
+            }
+        }), 
+        $(".lobidisable").lobiPanel({
+            reload: !1,
+            close: !1,
+            editTitle: !1,
+            sortable: !0,
+            unpin: {
+                icon: "ti-move"
+            },
+            minimize: {
+                icon: "ti-minus",
+                icon2: "ti-plus"
+            },
+            expand: {
+                icon: "ti-fullscreen",
+                icon2: "ti-fullscreen"
+            }
+        });
+    }
+
     
-    $(".lobidrag").lobiPanel({
-        sortable: !0,
-        editTitle: {
-            icon: "ti-pencil"
-        },
-        unpin: {
-            icon: "ti-move"
-        },
-        reload: {
-            icon: "ti-reload"
-        },
-        minimize: {
-            icon: "ti-minus",
-            icon2: "ti-plus"
-        },
-        close: {
-            icon: "ti-close"
-        },
-        expand: {
-            icon: "ti-fullscreen",
-            icon2: "ti-fullscreen"
-        }
-    }), 
-    $(".lobidisable").lobiPanel({
-        reload: !1,
-        close: !1,
-        editTitle: !1,
-        sortable: !0,
-        unpin: {
-            icon: "ti-move"
-        },
-        minimize: {
-            icon: "ti-minus",
-            icon2: "ti-plus"
-        },
-        expand: {
-            icon: "ti-fullscreen",
-            icon2: "ti-fullscreen"
-        }
-    });
         
     $(".notification_inner").slimScroll( {
         size: "3px", 

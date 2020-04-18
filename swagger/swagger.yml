@@ -23,16 +23,16 @@ paths:
         200:
           description: Creates a database per config settings
 
-  /:
-    get:
-      operationId: api.main.welcome
-      tags:
-        - home
-      summary: Retrieves welcome message
-      description: Displays welcome message
-      responses:
-        200:
-          description: See a welcome message
+  # /:
+  #   get:
+  #     operationId: api.main.welcome
+  #     tags:
+  #       - home
+  #     summary: Retrieves welcome message
+  #     description: Displays welcome message
+  #     responses:
+  #       200:
+  #         description: See a welcome message
 
   /health:
     get:

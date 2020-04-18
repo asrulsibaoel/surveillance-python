@@ -1,8 +1,10 @@
-from flask import Response
+from flask import Response, render_template
+
+import cv2
+import time
 
 from models.user_model import *
 from models.location_model import *
-
 
 def create_db():
     db.drop_all()
@@ -13,12 +15,9 @@ def create_db():
     response = Response(response_text, 200, mimetype='application/json')
     return response
 
-
 def welcome():
-    response_text = '{ "message": "Hello, welcome to sdetAutomation flask-api" }'
-    response = Response(response_text, 200, mimetype='application/json')
-    return response
-
+    """Video streaming home page."""
+    return render_template('views/home.html')
 
 def health():
     response_text = '{ "status": "OK" }'

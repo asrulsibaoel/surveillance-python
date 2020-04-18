@@ -25,6 +25,8 @@ class ImageProcessor(object):
 
     def get_image_stream(self):
         yield self.image_hub.recv_image()
+
+
         # [key, img] = self.image_hub.recv_image()
         # [key_type, rpi_name] = key.split("~")
 
@@ -44,8 +46,6 @@ class ImageProcessor(object):
             self.image_sender.send_image("detected~{}".format(rpi_name), img)
 
             time.sleep(0.01)
-
-
 
 
 if __name__ == "__main__":
