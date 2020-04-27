@@ -1,12 +1,12 @@
 import os
-from os.path import join, dirname
+from os.path import join, dirname, abspath
 import connexion
 from dotenv import load_dotenv
 
-dotenv_path = join(dirname(__file__), '.env')
+ROOT_DIR = abspath(dirname(__file__))
+dotenv_path = join(ROOT_DIR, '.env')
 load_dotenv(dotenv_path)
 
-ROOT_DIR = os.path.abspath(os.curdir)
 MYSQL_HOST = os.getenv('MYSQL_HOST', '127.0.0.1')
 MYSQL_PORT = os.getenv('MYSQL_PORT', 3306)
 MYSQL_USERNAME = os.getenv('MYSQL_USERNAME', 'root')
@@ -20,6 +20,9 @@ WEB_PORT = os.getenv('WEB_PORT', 8080)
 ZMQ_GATEWAY_HOST=os.getenv('ZMQ_GATEWAY_HOST', '127.0.0.1')
 ZMQ_GATEWAY_SUB_PORT=os.getenv('ZMQ_GATEWAY_SUB_PORT', 5005)
 ZMQ_GATEWAY_RES_PORT=os.getenv('ZMQ_GATEWAY_RES_PORT', 5555)
+
+DATASET_TRAINING_PATH = join(ROOT_DIR, os.getenv('DATASET_TRAINING_PATH', 'dataset/training'))
+DATASET_TESTING_PATH = join(ROOT_DIR, os.getenv('DATASET_TESTING_PATH', 'dataset/testing'))
 
 app = connexion.App(__name__, specification_dir='./swagger')
 
