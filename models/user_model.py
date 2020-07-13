@@ -9,7 +9,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
 
     def json(self):
-        return{'username': self.username, 'email': self.email}
+        return {'username': self.username, 'email': self.email}
 
     @staticmethod
     def get_all_users():

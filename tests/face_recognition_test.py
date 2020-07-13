@@ -2,7 +2,6 @@ import os
 from nn_manager import FaceRecognition
 from config import DATASET_TRAINING_PATH, DATASET_TESTING_PATH
 
-
 if __name__ == '__main__':
     model_name = "face_recognition.h5"
     image_path = 'test.jpg'

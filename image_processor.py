@@ -4,28 +4,28 @@ import cv2
 import time
 
 from dotenv import load_dotenv
+from nn_manager.face_recognition import FaceRecognition
+
 load_dotenv()
 
 ZMQ_GATEWAY_HOST = os.getenv("ZMQ_GATEWAY_HOST", "127.0.0.1")
 ZMQ_GATEWAY_SUB_PORT = os.getenv("ZMQ_GATEWAY_SUB_PORT", "5005")
 ZMQ_GATEWAY_RES_PORT = os.getenv("ZMQ_GATEWAY_RES_PORT", "5555")
 
+
 class ImageProcessor(object):
 
-    def __init__(self, zmq_server_address = "127.0.0.1", zmq_sub_port = "5005", zmq_res_port = "5555"):
-        
+    def __init__(self, zmq_server_address="127.0.0.1", zmq_sub_port="5005", zmq_res_port="5555"):
         zmq_sub_address = "tcp://{}:{}".format(str(zmq_server_address), str(zmq_sub_port))
         zmq_res_address = "tcp://{}:{}".format(str(zmq_server_address), str(zmq_res_port))
         self.image_hub = ImageHub(zmq_res_address, False)
         self.image_sender = ImageSender(zmq_sub_address)
 
     def detect_faces(self, frame):
-        
         return frame
 
     def get_image_stream(self):
         yield self.image_hub.recv_image()
-
 
         # [key, img] = self.image_hub.recv_image()
         # [key_type, rpi_name] = key.split("~")
@@ -37,11 +37,16 @@ class ImageProcessor(object):
         # return
 
     def process_image(self):
+        face_recognition = FaceRecognition()
+        model_name = "face_recognition.h5"
         while True:
             (key, img) = self.image_hub.recv_image()
             # self.image_hub.send_reply()
             # print(key, ": ", img)
             [key_type, rpi_name] = key.split("~")
+
+            k = FaceRecognition.model_prediction(img, os.path.join("model", model_name),
+                                                 os.path.join("model", "face_recognition_class_names.npy"))
 
             self.image_sender.send_image("detected~{}".format(rpi_name), img)
 

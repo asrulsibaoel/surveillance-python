@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-import config
 from nn_manager.vgg_model import get_model
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -10,15 +9,15 @@ from tensorflow.keras import optimizers
 from nn_manager.face_detection import get_detected_face
 
 
-class FaceRecognition(object):
+class FaceRecognition:
 
-    def __init__(self, training_data_dir, testing_data_dir):
-        self.TRAINING_DATA_DIRECTORY = training_data_dir
-        self.TESTING_DATA_DIRECTORY = testing_data_dir
+    def __init__(self):
+        self.TRAINING_DATA_DIRECTORY = "./dataset/training_me"
+        self.TESTING_DATA_DIRECTORY = "./dataset/testing_me"
         self.EPOCHS = 50
         self.BATCH_SIZE = 32
-        self.NUMBER_OF_TRAINING_IMAGES = 320
-        self.NUMBER_OF_TESTING_IMAGES = 196
+        self.NUMBER_OF_TRAINING_IMAGES = 496
+        self.NUMBER_OF_TESTING_IMAGES = 59
         self.IMAGE_HEIGHT = 224
         self.IMAGE_WIDTH = 224
         self.model = get_model()
@@ -42,7 +41,7 @@ class FaceRecognition(object):
     @staticmethod
     def data_generator():
         img_data_generator = ImageDataGenerator(
-            rescale=1./255,
+            rescale=1. / 255,
             # horizontal_flip=True,
             fill_mode="nearest",
             # zoom_range=0.3,
@@ -74,11 +73,11 @@ class FaceRecognition(object):
 
         history = self.model.fit_generator(
             self.training_generator,
-            steps_per_epoch=self.NUMBER_OF_TRAINING_IMAGES//self.BATCH_SIZE,
+            steps_per_epoch=self.NUMBER_OF_TRAINING_IMAGES // self.BATCH_SIZE,
             epochs=self.EPOCHS,
             validation_data=testing_generator,
             shuffle=True,
-            validation_steps=self.NUMBER_OF_TESTING_IMAGES//self.BATCH_SIZE
+            validation_steps=self.NUMBER_OF_TESTING_IMAGES // self.BATCH_SIZE
         )
 
         FaceRecognition.plot_training(history)
@@ -107,7 +106,7 @@ class FaceRecognition(object):
     @staticmethod
     def model_prediction(image_path, model_path, class_names_path):
         class_name = "None Class Name"
-        face_array, face = get_detected_face(image_path)
+        face_array, face, img = get_detected_face(image_path)
         model = load_model(model_path)
         face_array = face_array.astype('float32')
         input_sample = np.expand_dims(face_array, axis=0)
@@ -122,4 +121,4 @@ class FaceRecognition(object):
                 if k == index:
                     class_name = v
 
-        return class_name
+        return class_name, img

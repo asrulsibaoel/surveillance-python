@@ -13,7 +13,6 @@ clean:
 # system-packages:
 # 	sudo apt install python-pip -y
 
-
 install: 
 	pip install -r requirements.txt
 
