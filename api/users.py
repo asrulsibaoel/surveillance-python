@@ -11,12 +11,12 @@ def get_users():
     return return_value
 
 
-def get_by_username(username):
+def get_by_username(username: str) -> Response:
     response = Response(str(User.get_user(username)), 200, mimetype="application/json")
     return response
 
 
-def add_user():
+def add_user() -> Response:
     request_data = request.get_json()
     try:
         jsonschema.validate(request_data, add_user_schema)
@@ -28,7 +28,7 @@ def add_user():
     return response
 
 
-def update_email(username):
+def update_email(username: str) -> Response:
     request_data = request.get_json()
     try:
         jsonschema.validate(request_data, update_email_schema)
@@ -40,7 +40,7 @@ def update_email(username):
     return response
 
 
-def delete_user(username):
+def delete_user(username: str) -> Response:
     if User.delete_user(username):
         response = Response('', 204)
     else:
