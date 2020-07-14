@@ -54,4 +54,4 @@ def video_feed():
 
 
 if __name__ == "__main__":
-    csap.run(port=int(config.WEB_PORT), use_reloader=False, debug=True)
+    csap.run(host='0.0.0.0', port=int(config.WEB_PORT), use_reloader=False, debug=True)

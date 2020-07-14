@@ -63,7 +63,7 @@ def save_cropped_face(images_root_folder,
                     face_array)
 
 
-def get_detected_face(filename, required_size=(224, 224)):
+def get_detected_face(filename: str, required_size=(224, 224)):
     img = cv2.imread(filename)
     detector = MTCNN()
     results = detector.detect_faces(img)
