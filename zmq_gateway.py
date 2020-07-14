@@ -22,6 +22,7 @@ class ZmqGateway(object):
         """Get frame from camera and send it to Neural Network Service"""
         (key, img) = self.subscriber.recv_image()
         self.subscriber.send_reply()
+
         [key_type, rpi_name] = key.split("~")
 
         if key_type == "camera":
@@ -31,5 +32,6 @@ class ZmqGateway(object):
             frame = cv2.imencode('.jpg', image)[1].tobytes()
 
             self.frame = (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            print(self.frame)
         else:
             raise Exception("Key type and/ or payload must be right defined.")
