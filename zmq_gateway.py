@@ -32,6 +32,6 @@ class ZmqGateway(object):
             frame = cv2.imencode('.jpg', image)[1].tobytes()
 
             self.frame = (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-            print(self.frame)
+            # print(self.frame)
         else:
             raise Exception("Key type and/ or payload must be right defined.")
