@@ -64,14 +64,19 @@ def save_cropped_face(images_root_folder,
 
 
 def detect_face_from_buffer(img, required_size=(224, 224)):
-    detector = MTCNN()
-    results = detector.detect_faces(img)
-    x, y, width, height = results[0]['box']
-    face = img[y:y + height, x:x + width]
-    image = Image.fromarray(face)
-    image = image.resize(required_size)
-    face_array = np.asarray(image)
-    return face_array, face, img
+    # img = cv2.imdecode(img, cv2.COLOR_RGB2GRAY)
+    try:
+        detector = MTCNN()
+        results = detector.detect_faces(img)
+        x, y, width, height = results[0]['box']
+        face = img[y:y + height, x:x + width]
+        image = Image.fromarray(face)
+        image = image.resize(required_size)
+        face_array = np.asarray(image)
+        return face_array, face, img
+    except IndexError as e:
+        print(str(e))
+        return [], [], img
 
 
 def get_detected_face(filename: str, required_size=(224, 224)):

@@ -25,14 +25,14 @@ class ImageProcessor(object):
     def get_image_stream(self):
         (key, img) = self.image_hub.recv_image()
 
-        self.image_hub.send_reply()
+        # self.image_hub.send_reply()
         [key_type, rpi_name] = key.split("~")
 
         if key_type == "detect":
-            image = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
-            frame = cv2.imencode('.jpg', image)[1].tobytes()
-            [face_array, face, img] = detect_face_from_buffer(frame)
-            print(face_array)
+            # image = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
+            # frame = cv2.imencode('.jpg', image)[1].tobytes()
+            [face_array, face, img] = detect_face_from_buffer(img)
+            # print(face_array)
             self.image_sender.send_image("detected~{}".format(rpi_name), img)
 
     def process_image(self):
