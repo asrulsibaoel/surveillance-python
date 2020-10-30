@@ -39,7 +39,7 @@ def gen():
         while True:
             zmq_server.get_frame()
             yield zmq_server.frame
-            time.sleep(0.01)
+            time.sleep(0.1)
 
         cv2.destroyAllWindows()
     except Exception as e:

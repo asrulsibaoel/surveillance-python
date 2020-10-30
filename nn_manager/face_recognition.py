@@ -12,6 +12,35 @@ from nn_manager.face_detection import get_detected_face
 class FaceRecognition:
 
     def __init__(self):
+        """
+        frame ratenya: ??
+
+        Batasan masalah: gak ngurus SI dapuramu rasah kakean gaya, fokus saya di NN.
+        output: reporting per day, RAW. olah: nyari kang skripsi yg lain.
+
+        SCHENARIO:
+        check in:
+         - jam kerja - jam pulang
+         - jam brapa dia awal kedeteksi masuk ruangan (sblum jam 8 cek in lebih awal, after: terlambat xxx menit)
+         - karyawan [done]
+         - bukan karyawan => unidentified person.
+
+        Pindah ruangan:
+        - X sedang berada di ruang A (cek in sedang d ruangan A), X pindah ke ruang B.
+        - LAPORAN BAB 4: mendeteksi karyawan lagi dimana. IYO BENER INI LATAR BELAKANGKU kwkwkw.
+
+        Auto checkout:
+        - Jam istirahat? how its going?
+        - Jam setengah 2? kok belum balik? ini ngapain? alert: molor, nglimput.
+        - Setelah istirahat gak balik: melebihi jam istirahat.
+        - Lebih dari jam 5 => auto pulang
+
+        REPORTING:
+        - Si A: Tanggal X, setengah hari: Setelah istirahat gak mbalik.
+        - Si B: Tanggal X, tidak masuk
+        - Si C: Tanggal X, check in terlambat, istirahat sesuai ketentuan, pulang sesuai ketentuan.
+
+        """
         self.TRAINING_DATA_DIRECTORY = "./dataset/training_me"
         self.TESTING_DATA_DIRECTORY = "./dataset/testing_me"
         self.EPOCHS = 50

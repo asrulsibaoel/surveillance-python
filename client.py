@@ -3,6 +3,7 @@
 
 # import the necessary packages
 from imutils.video import VideoStream
+import cv2
 import imagezmq
 import argparse
 import socket
@@ -25,11 +26,11 @@ sender = imagezmq.ImageSender(connect_to="tcp://{}:5555".format(
 # camera sensor to warmup
 rpiName = socket.gethostname()
 # vs = VideoStream(usePiCamera=True).start()
-vs = VideoStream(src=0).start()
+vs = VideoStream(src=0, resolution=(320, 240)).start()
 time.sleep(2.0)
 
 while True:
     # read the frame from the camera and send it to the server
     frame = vs.read()
     sender.send_image("camera~{}".format(rpiName), frame)
-    time.sleep(0.3)
+    time.sleep(0.01)

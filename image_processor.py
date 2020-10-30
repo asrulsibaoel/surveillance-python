@@ -31,7 +31,7 @@ class ImageProcessor(object):
         if key_type == "detect":
             # image = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
             # frame = cv2.imencode('.jpg', image)[1].tobytes()
-            [face_array, face, img] = detect_face_from_buffer(img)
+            # [face_array, face, img] = detect_face_from_buffer(img)
             # print(face_array)
             self.image_sender.send_image("detected~{}".format(rpi_name), img)
 
