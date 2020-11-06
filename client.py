@@ -2,10 +2,10 @@
 # python client.py --server-ip SERVER_IP
 
 # import the necessary packages
-from imutils.video import VideoStream
+# from imutils.video import VideoStream
+import imutils
 import cv2
 import imagezmq
-import argparse
 import socket
 import time
 from os import getenv
@@ -26,11 +26,20 @@ sender = imagezmq.ImageSender(connect_to="tcp://{}:5555".format(
 # camera sensor to warmup
 rpiName = socket.gethostname()
 # vs = VideoStream(usePiCamera=True).start()
-vs = VideoStream(src=0, resolution=(320, 240)).start()
+# vs = VideoStream(src=0, resolution=(320, 240)).start()
+vs = cv2.VideoCapture(0)
+vs.set(3, 380)
+vs.set(4, 240)
 time.sleep(2.0)
 
-while True:
+while vs.isOpened():
     # read the frame from the camera and send it to the server
-    frame = vs.read()
-    sender.send_image("camera~{}".format(rpiName), frame)
-    time.sleep(0.01)
+    ret, frame = vs.read()
+    result, encimg = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+
+    sender.send_image("camera~{}".format(rpiName), encimg)
+    time.sleep(2)
+
+sender.close()
+vs.release()
+cv2.destroyAllWindows()

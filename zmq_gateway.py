@@ -15,7 +15,7 @@ class ZmqGateway(object):
         subscriber_uri = "tcp://*:{}".format(self.subscriber_port)
         self.publisher = ImageSender(publisher_uri, REQ_REP=False)
         print(" * Running ZMQ Publisher on port {}".format(self.publisher_port))
-        self.subscriber = ImageHub(subscriber_uri)
+        self.subscriber = ImageHub(subscriber_uri, REQ_REP=True)
         print(" * Running ZMQ Subscriber on port {}".format(self.subscriber_port))
 
     def get_frame(self):
@@ -26,7 +26,8 @@ class ZmqGateway(object):
         [key_type, rpi_name] = key.split("~")
 
         if key_type == "camera":
-            self.publisher.send_image_pubsub("detect~{}".format(rpi_name), img)
+            decoded_image = cv2.imdecode(img, 1)
+            self.publisher.send_image_pubsub("detect~{}".format(rpi_name), decoded_image)
         elif key_type == "detected":
             image = cv2.resize(img, (0, 0), fx=0.5, fy=0.5)
             frame = cv2.imencode('.jpg', image)[1].tobytes()
