@@ -35,7 +35,7 @@ time.sleep(2.0)
 while vs.isOpened():
     # read the frame from the camera and send it to the server
     ret, frame = vs.read()
-    result, encimg = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+    result, encimg = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 30])
 
     sender.send_image("camera~{}".format(rpiName), encimg)
     time.sleep(2)
