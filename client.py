@@ -28,7 +28,7 @@ rpiName = socket.gethostname()
 # vs = VideoStream(usePiCamera=True).start()
 # vs = VideoStream(src=0, resolution=(320, 240)).start()
 vs = cv2.VideoCapture(0)
-vs.set(3, 380)
+vs.set(3, 320)
 vs.set(4, 240)
 time.sleep(2.0)
 
@@ -38,7 +38,7 @@ while vs.isOpened():
     result, encimg = cv2.imencode('.jpg', frame, [int(cv2.IMWRITE_JPEG_QUALITY), 30])
 
     sender.send_image("camera~{}".format(rpiName), encimg)
-    time.sleep(2)
+    time.sleep(0.02)
 
 sender.close()
 vs.release()

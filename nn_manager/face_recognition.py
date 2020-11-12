@@ -6,12 +6,14 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import optimizers
 
+from os.path import abspath
+
 from nn_manager.face_detection import get_detected_face
 
 
 class FaceRecognition:
 
-    def __init__(self):
+    def __init__(self, training_data_dir: str = 'training', testing_data_dir: str = 'testing'):
         """
         frame ratenya: ??
 
@@ -41,8 +43,8 @@ class FaceRecognition:
         - Si C: Tanggal X, check in terlambat, istirahat sesuai ketentuan, pulang sesuai ketentuan.
 
         """
-        self.TRAINING_DATA_DIRECTORY = "./dataset/training_me"
-        self.TESTING_DATA_DIRECTORY = "./dataset/testing_me"
+        self.TRAINING_DATA_DIRECTORY = abspath(training_data_dir)
+        self.TESTING_DATA_DIRECTORY = abspath(testing_data_dir)
         self.EPOCHS = 50
         self.BATCH_SIZE = 32
         self.NUMBER_OF_TRAINING_IMAGES = 496
