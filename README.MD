@@ -57,7 +57,7 @@ You can test out this api entirely from the swagger ui page.
 Rest Api 
 -----
 
-####Users Api
+#### Users Api
 
 GET - getAll: [users/v1](http://localhost:5000/users/v1)
 
@@ -67,7 +67,7 @@ PUT - updateUserEmail: [users/v1/darth](http://localhost:5000/users/v1/darth) + 
 
 DELETE - deleteUsername: [users/v1/darth](http://localhost:5000/users/v1/darth)
 
-####Locations Api
+#### Locations Api
 
 GET - getAll: [locations/v1](http://localhost:5000/locations/v1)
 
